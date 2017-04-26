@@ -78,6 +78,5 @@ deploy:
    type: git
    #repository: http://github.com/bonjs/bonjs.github.io.git
    repo: 
-       github: git@github.com:bonjs/bonjs.github.io.git,master
        gitcafe: git@git.coding.net:observable/observable.git,master
-  
+       github: git@github.com:bonjs/bonjs.github.io.git,master
