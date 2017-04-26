@@ -69,5 +69,6 @@ theme: concise
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
    type: git
-   repository: http://github.com/bonjs/bonjs.github.io.git
+   #repository: http://github.com/bonjs/bonjs.github.io.git
+   repository: git@github.com:bonjs/bonjs.github.io.git
    branch: master
