@@ -1,0 +1,65 @@
+<!--
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+-->
+
+<script src="//cdn.bootcss.com/jquery/1.11.3/jquery.js"></script>
+
+<% if (config.disqus_shortname){ %>
+<script type="text/javascript">
+var disqus_shortname = '<%= config.disqus_shortname %>';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/<% if (page.comments){ %>embed.js<% } else { %>count.js<% } %>';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+<% } %>
+
+<script>
+	
+	var rightP = $('#rightPanel');
+	var rightPanelFun = function() {
+		if(window.scrollY < 55 || document.body.clientWidth < 824){
+			rightP.css({
+				position: 'static',
+				top		: '0px',
+				width	: 'auto'
+			});
+		} else {
+			rightP.css({
+				position: 'fixed',
+				top		: '20px',
+				width	: '270px'
+			});
+		}
+	}
+	$(window).on({
+		scroll: rightPanelFun,
+		resize: rightPanelFun
+	})
+	
+</script>
+
+<%- partial('baiduStat') %>
+
+<script>
+
+
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+
+</script>
+
