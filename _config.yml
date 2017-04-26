@@ -65,10 +65,19 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 theme: concise
 
+
+sitemap:
+    path: sitemap.xml
+    template: ./sitemap_template.xml
+
+
+
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
    type: git
    #repository: http://github.com/bonjs/bonjs.github.io.git
-   repository: git@github.com:bonjs/bonjs.github.io.git
-   branch: master
+   repo: 
+       github: git@github.com:bonjs/bonjs.github.io.git,master
+       gitcafe: git@git.coding.net:observable/observable.git,master
+  
