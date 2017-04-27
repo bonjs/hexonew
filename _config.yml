@@ -74,9 +74,20 @@ sitemap:
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
-deploy:
-   type: git
+#deploy:
+   #type: git
    #repository: http://github.com/bonjs/bonjs.github.io.git
-   repo: 
-       gitcafe: git@git.coding.net:observable/observable.git,master
-       github: git@github.com:bonjs/bonjs.github.io.git,master
+   #repo: 
+       #gitcafe: git@git.coding.net:observable/observable.git,master
+       #github: git@github.com:bonjs/bonjs.github.io.git,master
+deploy:
+    type: ftpsync
+    host: fdsafdsafdsa
+    user: sfdsafdunfdasf
+    pass: ********
+    remote: /web/
+    port: 21
+    ignore: [node_modules]
+  #ignore: [ignore]        #忽略的文件
+  #connections: [connections]  #使用的连接数，默认1
+  #verbose: [true|false]   #显示调试信息，默认false
