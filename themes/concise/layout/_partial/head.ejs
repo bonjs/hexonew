@@ -36,10 +36,29 @@
   <% } else { %>
     <meta property="og:image" content="<%= config.cover %>"/>
   <% } %>
+  
+  
+  
+  
+  <script>
+		var protocol = window.location.protocol;
+		
+		var rootDomain = (document.domain.match(/((?:\w+\.)?\w+)$/) || [])[0];
+		var base = document.createElement('base');
+		base.setAttribute('href', protocol + '/' + '/www.' + rootDomain);
+		document.head.appendChild(base);
+  </script>
+  
+  
+  
+  
 
   <link href="<%- config.root %>favicon.png" rel="icon">
   <link rel="alternate" href="<% if (theme.rss){ %><%- theme.rss %><% } else { %><%- config.root %>atom.xml<% } %>" title="<%= config.title %>" type="application/atom+xml">
   <link rel="stylesheet" href="<%- config.root %>css/style.css" media="screen" type="text/css">
   <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
   <%- partial('google_analytics') %>
+  
+  
 </head>
+

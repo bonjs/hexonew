@@ -39,9 +39,28 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 	$(window).on({
 		scroll: rightPanelFun,
 		resize: rightPanelFun
-	})
+	});
 	
+
+	(function() {
+	
+		var protocol = window.location.protocol;
+		
+		var rootDomain = (document.domain.match(/((?:\w+\.)?\w+)$/) || [])[0];
+	
+		var articleDomain = 'article.' + rootDomain;
+	
+		
+		$('.archive-post, article.post, #rightPanel').find('a[path]').each(function(i, d) {
+			var path = d.getAttribute('path').replace(/^article/g, '');
+			$(this).attr('href', protocol + '/' + '/' + articleDomain + path).removeAttr('path');
+		});
+	})();
 </script>
+
+
+
+
 
 <%- partial('baiduStat') %>
 
