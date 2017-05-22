@@ -46,15 +46,24 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 	
 		var protocol = window.location.protocol;
 		
-		var rootDomain = (document.domain.match(/((?:\w+\.)?\w+)$/) || [])[0];
-	
-		var articleDomain = 'article.' + rootDomain;
-	
+		var reg = /^((?:\d+\.){3}\d+)|.*?((?:\w+\.)?\w+)$/;
 		
-		$('.archive-post, article.post, #rightPanel').find('a[path]').each(function(i, d) {
-			var path = d.getAttribute('path').replace(/^article/g, '');
-			$(this).attr('href', protocol + '/' + '/' + articleDomain + path).removeAttr('path');
-		});
+		var rootDomain = (document.domain.match(reg) || []);
+		
+		if(rootDomain[2]) {	// 域名访问
+		
+			var articleDomain = 'article.' + rootDomain[2];
+		
+			$('.archive-post, article.post, #rightPanel').find('a[path]').each(function(i, d) {
+				var path = d.getAttribute('path').replace(/^article/g, '');
+				$(this).attr('href', protocol + '/' + '/' + articleDomain + path).removeAttr('path');
+			});
+		} else {	// ip访问
+			$('.archive-post, article.post, #rightPanel').find('a[path]').each(function(i, d) {
+				var path = d.getAttribute('path');
+				$(this).attr('href', protocol + '/' + '/' + rootDomain[1] + '/' + path).removeAttr('path');
+			});
+		}
 	})();
 </script>
 

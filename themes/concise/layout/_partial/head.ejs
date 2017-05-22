@@ -43,10 +43,17 @@
   <script>
 		var protocol = window.location.protocol;
 		
-		var rootDomain = (document.domain.match(/((?:\w+\.)?\w+)$/) || [])[0];
+		var reg = /^((?:\d+\.){3}\d+)|.*?((?:\w+\.)?\w+)$/;
+		
 		var base = document.createElement('base');
-		base.setAttribute('href', protocol + '/' + '/www.' + rootDomain);
-		document.head.appendChild(base);
+		var rootDomain = (document.domain.match(reg) || []);
+		if(rootDomain[2]) {
+			base.setAttribute('href', protocol + '/' + '/www.' + rootDomain[2]);
+			document.head.appendChild(base);
+		} else {
+			base.setAttribute('href', protocol + '/' + '/' + rootDomain[1]);
+			document.head.appendChild(base);
+		}
   </script>
   
   
