@@ -48,24 +48,21 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 	
 		var protocol = window.location.protocol;
 		
-		var reg = /^((?:\d+\.){3}\d+)|.*?((?:\w+\.)?\w+)$/;
+		//var reg = /^((?:\d+\.){3}\d+)|.*?((?:\w+\.)?\w+)$/;
+		var reg = /^(?:.*?(bonjs\.com)|.*?((?:\w+\.)?[\w.]+))$/;
 		
 		var rootDomain = (document.domain.match(reg) || []);
 		
-		if(rootDomain[2]) {	// 域名访问
-		
-			var articleDomain = 'article.' + rootDomain[2];
-		
-			$('.archive-post, article.post, #rightPanel').find('a[path]').each(function(i, d) {
+		var articleDomain = 'article.' + rootDomain[1];
+		$('.archive-post, article.post, #rightPanel').find('a[path]').each(function(i, d) {
+			if(rootDomain[1]) {	// bonjs.com访问
 				var path = d.getAttribute('path').replace(/^article/g, '');
 				$(this).attr('href', protocol + '/' + '/' + articleDomain + path).removeAttr('path');
-			});
-		} else {	// ip访问
-			$('.archive-post, article.post, #rightPanel').find('a[path]').each(function(i, d) {
+			} else {			// 其他域名及ip访问
 				var path = d.getAttribute('path');
-				$(this).attr('href', protocol + '/' + '/' + rootDomain[1] + '/' + path).removeAttr('path');
-			});
-		}
+				$(this).attr('href', protocol + '/' + '/' + rootDomain[2] + '/' + path).removeAttr('path');
+			}
+		});
 	})();
 </script>
 
@@ -107,6 +104,7 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 </script>
 
 <script type="text/javascript" data-no-instant>
+	/*
 	window._pt_lt = new Date().getTime();
 	window._pt_sp_2 = [];
 	_pt_sp_2.push('setAccount,23cdd0e4');
@@ -117,4 +115,5 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 		var s = document.getElementsByTagName('script')[0];
 		s.parentNode.insertBefore(atag, s);
 	})();
+	*/
 </script>
