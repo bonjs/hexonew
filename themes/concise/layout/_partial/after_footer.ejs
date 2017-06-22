@@ -66,9 +66,13 @@ var disqus_shortname = '<%= config.disqus_shortname %>';
 	})();
 </script>
 
+<script>
+	$('article.post .post-content .entry p:first-child').addClass('first-p');
+</script>
+
 <%- partial('baiduStat') %>
 
-<script src="instantclick.js" data-no-instant></script>
+<script src="/instantclick.js" data-no-instant></script>
 <script data-no-instant>
 	InstantClick.on('change', function (isInitialLoad) {
 		if (isInitialLoad === false) {
