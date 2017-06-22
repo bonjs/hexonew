@@ -84,12 +84,12 @@ sitemap:
        #github: git@github.com:bonjs/bonjs.github.io.git,master
 deploy:
     type: ftpsync
-    host: bonjs.com
+    host: yoycn.com
     user: sun
-    pass: sun
+    pass: bonjs.com
     remote: web
     port: 21
     ignore: [node_modules]
   #ignore: [ignore]        #忽略的文件
   #connections: [connections]  #使用的连接数，默认1
-  #verbose: [true|false]   #显示调试信息，默认false
+    #verbose: [true]   #显示调试信息，默认false
