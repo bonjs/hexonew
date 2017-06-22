@@ -86,7 +86,7 @@ deploy:
     type: ftpsync
     host: yoycn.com
     user: sun
-    pass: bonjs.com
+    pass: *****
     remote: web
     port: 21
     ignore: [node_modules]
