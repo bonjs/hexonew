@@ -43,17 +43,24 @@
   <script>
 		var protocol = window.location.protocol;
 		
-		var reg = /^((?:\d+\.){3}\d+)|.*?((?:\w+\.)?\w+)$/;
-		
+		var reg = /^(?:((?:\d+\.){3}\d+)|.*?((\w+\.)?\w+))(\:\d+)?$/;
 		var base = document.createElement('base');
-		var rootDomain = (document.domain.match(reg) || []);
-		if(rootDomain[2]) {
-			base.setAttribute('href', protocol + '/' + '/www.' + rootDomain[2]);
-			document.head.appendChild(base);
+		var m = (window.location.host.match(reg) || []);
+		
+		var ip = m[1];
+		var rootDomain = m[2];
+		var port = m[4];
+		var isDomain = !!m[3]; // 是否是域名
+		if(rootDomain) {
+			if(isDomain) {	
+				base.setAttribute('href', protocol + '/' + '/www.' + m[2] + m[4]);
+			} else {
+				base.setAttribute('href', protocol + '/' + '/' + m[2] + m[4]);
+			}
 		} else {
-			base.setAttribute('href', protocol + '/' + '/' + rootDomain[1]);
-			document.head.appendChild(base);
+			base.setAttribute('href', protocol + '/' + '/' + m[1] + m[4]);
 		}
+		document.head.appendChild(base);
   </script>
   
   
