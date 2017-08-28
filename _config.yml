@@ -86,7 +86,7 @@ deploy:
     type: ftpsync
     host: 127.0.0.1
     user: admin 
-    pass: ***
+    pass: 000
     remote: web
     port: 21
     ignore: [node_modules]

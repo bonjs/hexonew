@@ -41,6 +41,8 @@
   
   
   <script>
+
+	(function() {
 		var protocol = window.location.protocol;
 		
 		var reg = /^(?:((?:\d+\.){3}\d+)|.*?((\w+\.)?\w+))(\:\d+)?$/;
@@ -51,6 +53,18 @@
 		var rootDomain = m[2];
 		var port = m[4] || '';
 		var isDomain = !!m[3]; // 是否是域名
+
+
+		var server = (ip || rootDomain) + port;
+			
+		if(isDomain) {
+                        base.setAttribute('href', protocol + '/' + '/www.' + server);
+                } else {
+                        base.setAttribute('href', protocol + '/' + '/' + server);
+                }
+		
+		document.head.appendChild(base);
+		return;
 		if(rootDomain) {
 			if(isDomain) {	
 				base.setAttribute('href', protocol + '/' + '/www.' + rootDomain + port);
@@ -61,6 +75,7 @@
 			base.setAttribute('href', protocol + '/' + '/' + ip + port);
 		}
 		document.head.appendChild(base);
+	})();
   </script>
   
   
