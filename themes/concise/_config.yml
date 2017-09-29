@@ -1,0 +1,30 @@
+menu:
+  Archives: archives
+  #RSS: /atom.xml
+  Github: https://github.com/bonjs
+  About Alex: https://about.bonjs.com
+
+widgets:
+- search
+- recent_posts
+- category
+- tagcloud
+
+excerpt_link: Read More ›
+
+twitter:
+  username:
+  show_replies: false
+  tweet_count: 5
+
+addthis:
+  enable: true
+  pubid:
+  facebook: true
+  twitter: true
+  google: true
+  pinterest: true
+
+baiduStat: true
+  
+google_analytics:
