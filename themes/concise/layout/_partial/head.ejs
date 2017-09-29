@@ -53,12 +53,12 @@
 		var isDomain = !!m[3]; // 是否是域名
 		if(rootDomain) {
 			if(isDomain) {	
-				base.setAttribute('href', protocol + '/' + '/www.' + m[2] + m[4]);
+				base.setAttribute('href', protocol + '/' + '/www.' + rootDomain + port);
 			} else {
-				base.setAttribute('href', protocol + '/' + '/' + m[2] + m[4]);
+				base.setAttribute('href', protocol + '/' + '/' + rootDomain + port);
 			}
 		} else {
-			base.setAttribute('href', protocol + '/' + '/' + m[1] + m[4]);
+			base.setAttribute('href', protocol + '/' + '/' + ip + port);
 		}
 		document.head.appendChild(base);
   </script>
