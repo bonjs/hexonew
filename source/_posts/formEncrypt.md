@@ -45,7 +45,11 @@ $.fn.ajaxSubmit = function() {
 
 			return result;
 		};
+<<<<<<< HEAD
 		f.apply(this, arguments);
+=======
+		return f.apply(this, arguments);
+>>>>>>> master
 	};
 }();
 ```
@@ -73,4 +77,8 @@ $('button').click(function() {
 
 通过ajaxSubmit提交表单时,添加了encrypt=true的字段发送的数据会自动进行加密
 
+<<<<<<< HEAD
 <img src="/image/formEncryp.png">
+=======
+<img src="/image/formEncryp.png">
+>>>>>>> master

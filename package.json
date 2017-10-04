@@ -23,4 +23,8 @@
   "devDependencies": {
     "hexo-generator-sitemap": "^1.2.0"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> master
