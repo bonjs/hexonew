@@ -84,8 +84,8 @@ sitemap:
        #github: git@github.com:bonjs/bonjs.github.io.git,master
 deploy:
     type: ftpsync
-    host: 127.0.0.1
-    user: test
+    host: yoycn.com
+    user: sun
     pass: sun
     remote: web
     port: 21
